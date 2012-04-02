@@ -1,7 +1,7 @@
 ;; Spelling configuration file (GNU Emacs)
 ;; -----------------------------------
 ;;  Author: Víctor Terrón
-;;  Time-stamp: <2012-03-29 16:32:55 vterron>
+;;  Time-stamp: <2012-04-02 12:32:58 vterron>
 
 ;; Use aspell instead of ispell. It is is much better at coming up
 ;; with suggested spelling and, unlike ispell, can also easily check
@@ -9,6 +9,9 @@
 ;; [http://emacswiki.org/emacs/InteractiveSpell#toc5]
 ;;
 (setq ispell-program-name "aspell")
+
+;; Set Spanish as the default dictionary
+(setq ispell-dictionary "castellano")
 
 ;; Change the dictionary by cycling through different languages
 ;; [http://www.emacswiki.org/emacs/FlySpell#toc5]
