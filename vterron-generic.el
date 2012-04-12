@@ -1,7 +1,7 @@
 ;; General configuration file (GNU Emacs)
 ;; ----------------------------
 ;;  Author: Víctor Terrón
-;;  Time-stamp: <2012-03-29 17:34:09 vterron>
+;;  Time-stamp: <2012-04-12 13:10:49 vterron>
 
 ;; Override Emacs' default mechanism for buffer names with a more sensible
 ;; behaviour which uses parts of the file names to make the buffer names.
@@ -113,5 +113,10 @@
 ;; [http://emacswiki.org/emacs/ToolBar]
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+
+;; Yank killed or copied at point instead of mouse position. In this
+;; manner it does not matter precisely where we click, as long as we
+;; click on the window.
+(setq mouse-yank-at-point t)
 
 (provide 'vterron-generic)
