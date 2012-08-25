@@ -15,7 +15,9 @@
 
 (define-abbrev-table 'python-mode-abbrev-table
   '(
-    ("pm" "if __name__ == \"__main__\":" nil 4)
+    ("dc" "print \"Dayvan Cowboy\"" nil 2)
+    ("env" "#! /usr/bin/env python" nil 2)
+    ("pm" "if __name__ == \"__main__\":" nil 5)
    ))
 
 (define-abbrev-table 'snippet-mode-abbrev-table '())
