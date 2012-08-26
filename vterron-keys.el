@@ -1,7 +1,7 @@
 ;; Key bindings configuration file (GNU Emacs)
 ;; -----------------------------------
 ;;  Author: Víctor Terrón
-;;  Time-stamp: <2012-03-29 16:59:00 vterron>
+;;  Time-stamp: <2012-08-26 05:50:19 vterron>
 
 ;; Prevent Emacs from being sent to background if we accidentally
 ;; press Ctrl+Z [http://www.fettesps.com/emacs-disable-suspend-button/]
@@ -34,6 +34,12 @@
 ;;
 (global-set-key [f5] 'ispell-buffer)
 (global-set-key [f6] 'cycle-ispell-languages)
+
+;; F5 is not working over SSH (instead, a tilde is inserted), so we
+;; also have to bind what Emacs is actually receiving (C-q <F5>) to
+;; the same function. This is not needed, strangely enough, for F6.
+;;
+(global-set-key "[15~" 'ispell-buffer)
 
 ;; The various ways of sanely setting "unusual" keybindings (like
 ;; M-left and C-Home and such) tend not to work for terminal Emacs.
