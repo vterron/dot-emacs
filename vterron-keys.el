@@ -1,7 +1,7 @@
 ;; Key bindings configuration file (GNU Emacs)
 ;; -----------------------------------
 ;;  Author: Víctor Terrón
-;;  Time-stamp: <2012-08-26 05:50:19 vterron>
+;;  Time-stamp: <2012-09-03 17:33:36 vterron>
 
 ;; Prevent Emacs from being sent to background if we accidentally
 ;; press Ctrl+Z [http://www.fettesps.com/emacs-disable-suspend-button/]
@@ -40,6 +40,12 @@
 ;; the same function. This is not needed, strangely enough, for F6.
 ;;
 (global-set-key "[15~" 'ispell-buffer)
+
+;; Bind Refill mode to F8. Although most of the time we will want
+;; perfectly filled paragraphs in our buffers, it must be temporarily
+;; disabled if we need to write a table or anything else non-filled.
+;;
+(global-set-key [f8] 'refill-mode)
 
 ;; The various ways of sanely setting "unusual" keybindings (like
 ;; M-left and C-Home and such) tend not to work for terminal Emacs.
