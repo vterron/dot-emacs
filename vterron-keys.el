@@ -1,7 +1,7 @@
 ;; Key bindings configuration file (GNU Emacs)
 ;; -----------------------------------
 ;;  Author: Víctor Terrón
-;;  Time-stamp: <2012-09-03 17:33:36 vterron>
+;;  Time-stamp: <2012-10-29 18:03:31 vterron>
 
 ;; Prevent Emacs from being sent to background if we accidentally
 ;; press Ctrl+Z [http://www.fettesps.com/emacs-disable-suspend-button/]
@@ -28,11 +28,9 @@
 	       (lambda ()
 		 (local-set-key (kbd "C-c C-e") 'py-execute-region)))))
 
-;; Check the current buffer for spelling errors and cycle through the
-;; different languages (this function is defined in vterron-spell.el)
-;; with the F5 and F6, respectively.
-;;
+(global-set-key [f4] 'ispell-region)
 (global-set-key [f5] 'ispell-buffer)
+;; Cycle through languages (function defined in vterron-spell.el)
 (global-set-key [f6] 'cycle-ispell-languages)
 
 ;; F5 is not working over SSH (instead, a tilde is inserted), so we
