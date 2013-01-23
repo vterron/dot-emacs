@@ -1,7 +1,7 @@
 ;; General configuration file (GNU Emacs)
 ;; ----------------------------
 ;;  Author: Víctor Terrón
-;;  Time-stamp: <2012-04-12 13:10:49 vterron>
+;;  Time-stamp: <2013-01-23 10:36:42 vterron>
 
 ;; Override Emacs' default mechanism for buffer names with a more sensible
 ;; behaviour which uses parts of the file names to make the buffer names.
@@ -118,5 +118,19 @@
 ;; manner it does not matter precisely where we click, as long as we
 ;; click on the window.
 (setq mouse-yank-at-point t)
+
+;; Function that works like the 'wc' command
+;; [http://www.emacswiki.org/emacs/WordCount]
+;;
+(defun wc (&optional start end)
+  "Prints number of lines, words and characters in region or whole buffer."
+  (interactive)
+  (let ((n 0)
+	(start (if mark-active (region-beginning) (point-min)))
+	(end (if mark-active (region-end) (point-max))))
+    (save-excursion
+      (goto-char start)
+      (while (< (point) end) (if (forward-word 1) (setq n (1+ n)))))
+    (message "%3d %3d %3d" (count-lines start end) n (- end start))))
 
 (provide 'vterron-generic)
