@@ -1,7 +1,7 @@
 ;; Key bindings configuration file (GNU Emacs)
 ;; -----------------------------------
 ;;  Author: Víctor Terrón
-;;  Time-stamp: <2012-10-29 18:03:31 vterron>
+;;  Time-stamp: <2013-02-01 20:07:18 vterron>
 
 ;; Prevent Emacs from being sent to background if we accidentally
 ;; press Ctrl+Z [http://www.fettesps.com/emacs-disable-suspend-button/]
@@ -11,6 +11,7 @@
 ;; Allow left/right arrow key navigation of the buffer list and deactivate
 ;; up/down in iswitchb [http://emacswiki.org/emacs/IswitchBuffers]
 ;;
+(require 'edmacro)
 (defun iswitchb-local-keys ()
   (mapc (lambda (K)
 	  (let* ((key (car K)) (fun (cdr K)))
