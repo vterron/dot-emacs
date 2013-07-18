@@ -1,7 +1,7 @@
 ;; Backup and auto-save configuration file (GNU Emacs)
 ;; -----------------------------------
 ;;  Author: Víctor Terrón
-;;  Time-stamp: <2012-03-29 16:35:35 vterron>
+;;  Time-stamp: <2013-07-18 21:52:43 vterron>
 
 ;; Emacs creates a backup only when we save the first time. This is
 ;; incompatible with the behavior of leaving the buffers open all the
@@ -33,5 +33,43 @@
 (defvar autosave-list-directory
   (concat autosave-directory "auto-save-list/"))
 (setq auto-save-list-file-prefix autosave-list-directory)
+
+;; Count the number of lines in the buffer "*async delete-backups*", each
+;; one of them corresponding to a file removed by delete-old-backups, and
+;; display in the echo area a message like "Deleted 117 old backup files"
+;; [Modified from: http://stackoverflow.com/a/16134238/184363]
+;;
+(defun delete-old-backups-sentinel (process event)
+  (cond ((string-match-p "finished" event)
+	 (save-excursion
+	   (let (output-buffer words number-of-lines)
+	     (setq output-buffer "*async delete-backups*")
+	     (set-buffer output-buffer)
+	     ;; Write something like "Page has 117 lines (117 + 0)" to the
+	     ;; echo area, then extract from there the number of lines (in
+	     ;; this example it would be 117, the third word)
+	     (with-temp-message ""
+		(count-lines-page)
+	        (setq words (split-string (current-message)))
+	        (setq number-of-lines (string-to-number (elt words 2))))
+	     (when (/= number-of-lines  0)
+	       (message "Deleted %d old backup files" number-of-lines))
+	     (kill-buffer output-buffer))))))
+
+;; Delete those regular files in ~/.emacs-backups that were last modified
+;; six months ago. The command is run asynchronously. Upon completion, if
+;; at least one file has been deleted, a message is displayed in the echo
+;; area letting us know the number.
+;;
+(defun delete-old-backups ()
+  "Remove files in ~/.emacs-backups older than six months"
+  (interactive)
+  (let ((process (start-process-shell-command
+		  "delete-backups"
+		  "*async delete-backups*"
+		  (concat "find ~/.emacs-backups/ -type f -mtime +180 -print0 | "
+			  "xargs --null rm --verbose --force")
+		  )))
+    (set-process-sentinel process 'delete-old-backups-sentinel)))
 
 (provide 'vterron-backups)
