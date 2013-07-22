@@ -1,7 +1,7 @@
 ;; Spelling configuration file (GNU Emacs)
 ;; -----------------------------------
 ;;  Author: Víctor Terrón
-;;  Time-stamp: <2012-04-02 12:32:58 vterron>
+;;  Time-stamp: <2013-07-22 17:29:42 vterron>
 
 ;; Use aspell instead of ispell. It is is much better at coming up
 ;; with suggested spelling and, unlike ispell, can also easily check
@@ -26,12 +26,24 @@
     (ring-insert lang-ring lang)
     (ispell-change-dictionary lang)))
 
-;; Take a look at this for info on how to automatically detect the
-;; language and choose a dictionary accordingly (GuessBufferLanguage)
-;; http://emacswiki.org/emacs/InteractiveSpell#toc3
-;; http://www.emacswiki.org/emacs/GuessLang
+;; Use auto-dictionary-mode to automatically detect the language of
+;; the buffer and choose the dictionary accordingly. The mode, which
+;; evaluates the content of the buffer when we stop typing for a while,
+;; is never enabled, but we use #'adict-guess-dictionary to write our
+;; own two functions that automatically select the ispell dictionary
+;; and then check the current region or buffer for spelling errors.
 ;;
-;; Also, I would like ispell to ignore quoted text when in mail-mode.
-;; A hurried and cursory Google search did not result anything.
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lib/auto-dictionary"))
+(require 'auto-dictionary)
+
+(defun autodict-ispell-region ()
+  (interactive)
+  (adict-guess-dictionary)
+  (ispell-region))
+
+(defun autodict-ispell-buffer ()
+  (interactive)
+  (adict-guess-dictionary)
+  (ispell-buffer))
 
 (provide 'vterron-spell)
