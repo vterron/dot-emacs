@@ -1,0 +1,3 @@
+[submodule "lib/auto-dictionary"]
+	path = lib/auto-dictionary
+	url = git@github.com:vterron/auto-dictionary-mode.git
