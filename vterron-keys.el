@@ -1,7 +1,7 @@
 ;; Key bindings configuration file (GNU Emacs)
 ;; -----------------------------------
 ;;  Author: Víctor Terrón
-;;  Time-stamp: <2013-07-22 17:40:22 vterron>
+;;  Time-stamp: <2013-07-22 17:41:14 vterron>
 
 ;; Prevent Emacs from being sent to background if we accidentally
 ;; press Ctrl+Z [http://www.fettesps.com/emacs-disable-suspend-button/]
@@ -30,7 +30,7 @@
 		 (local-set-key (kbd "C-c C-e") 'py-execute-region)))))
 
 (global-set-key [f4] 'autodict-ispell-region)
-(global-set-key [f5] 'ispell-buffer)
+(global-set-key [f5] 'autodict-ispell-buffer)
 ;; Cycle through languages (function defined in vterron-spell.el)
 (global-set-key [f6] 'cycle-ispell-languages)
 
@@ -38,7 +38,7 @@
 ;; also have to bind what Emacs is actually receiving (C-q <F5>) to
 ;; the same function. This is not needed, strangely enough, for F6.
 ;;
-(global-set-key "[15~" 'ispell-buffer)
+(global-set-key "[15~" 'autodict-ispell-buffer)
 
 ;; Bind Refill mode to F8. Although most of the time we will want
 ;; perfectly filled paragraphs in our buffers, it must be temporarily
