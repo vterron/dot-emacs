@@ -1,7 +1,7 @@
 ;; Key bindings configuration file (GNU Emacs)
 ;; -----------------------------------
 ;;  Author: Víctor Terrón
-;;  Time-stamp: <2013-02-01 20:07:18 vterron>
+;;  Time-stamp: <2013-07-22 17:40:22 vterron>
 
 ;; Prevent Emacs from being sent to background if we accidentally
 ;; press Ctrl+Z [http://www.fettesps.com/emacs-disable-suspend-button/]
@@ -29,7 +29,7 @@
 	       (lambda ()
 		 (local-set-key (kbd "C-c C-e") 'py-execute-region)))))
 
-(global-set-key [f4] 'ispell-region)
+(global-set-key [f4] 'autodict-ispell-region)
 (global-set-key [f5] 'ispell-buffer)
 ;; Cycle through languages (function defined in vterron-spell.el)
 (global-set-key [f6] 'cycle-ispell-languages)
