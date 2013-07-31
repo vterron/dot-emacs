@@ -1,7 +1,7 @@
 ;; Spelling configuration file (GNU Emacs)
 ;; -----------------------------------
 ;;  Author: Víctor Terrón
-;;  Time-stamp: <2013-07-22 17:29:42 vterron>
+;;  Time-stamp: <2013-07-31 10:25:32 vterron>
 
 ;; Use aspell instead of ispell. It is is much better at coming up
 ;; with suggested spelling and, unlike ispell, can also easily check
@@ -39,7 +39,7 @@
 (defun autodict-ispell-region ()
   (interactive)
   (adict-guess-dictionary)
-  (ispell-region))
+  (ispell-region (region-beginning) (region-end)))
 
 (defun autodict-ispell-buffer ()
   (interactive)
