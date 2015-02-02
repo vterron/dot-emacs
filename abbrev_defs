@@ -17,7 +17,7 @@
 (define-abbrev-table 'lisp-mode-abbrev-table '())
 
 (define-abbrev-table 'python-mode-abbrev-table
-  '(
+  `(
     ("dc" "print(\"Dayvan Cowboy\")" nil 2)
     ("env" "#! /usr/bin/env python3\n" nil 3)
     ("env2" "#! /usr/bin/env python2
@@ -27,6 +27,11 @@ from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import unicode_literals
 " nil 3)
+
+    ("lic" ,(concat
+              "# Author: Victor Terron (c) " (format-time-string "%Y") "\n"
+              "# Email: `echo vt2rron1iaa32s | tr 132 @.e`\n"
+	      "# License: GNU GPLv3\n")  nil 3)
 
     ("pm" "if __name__ == \"__main__\":" nil 5)
    ))
