@@ -6,7 +6,7 @@
 (defun author-name  () "Víctor Terrón")
 (defun author-email () "vterron@iaa.es")
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lib"))
 
 (require 'vterron-abbrev)
