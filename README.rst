@@ -6,6 +6,6 @@ These are my Emacs configuration files. Hopefully they will be of any help to so
 * Backup your ``~/.emacs`` and ``~/.emacs.d`` files!
 * ``apt-get install emacs-goodies-el python-mode``
 * ``apt-get install aspell aspell-en aspell-es``
-* ``git clone git://github.com/vterron/dot-emacs.git ~/.emacs.d``
+* ``git clone https://github.com/vterron/dot-emacs.git ~/.emacs.d``
 * ``cd ~/.emacs.d/; git submodule init; git submodule update``
 * ``ln -s ~/.emacs.d/lisp/vterron-init.el ~/.emacs``
