@@ -1,13 +1,14 @@
 ;; GNU Emacs top-level configuration file
 ;; --------------------------------------
 ;;  Author: Víctor Terrón
-;;  Time-stamp: <2012-03-29 17:25:48 vterron>
+;;  Time-stamp: <2019-05-05 21:45:57 vterron>
 
 (defun author-name  () "Víctor Terrón")
 (defun author-email () "vterron@iaa.es")
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lib"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lib/color-theme"))
 
 (require 'vterron-abbrev)
 (require 'vterron-backups)
